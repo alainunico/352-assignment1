@@ -48,18 +48,24 @@ public class LoginServlet extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String userName = request.getParameter("username");
+        String passWord = request.getParameter("password");
      
-        if(username == null || username.isEmpty() && password == null || password.isEmpty() ){
-         request.setAttribute("message", "Invalid. Please enter a username and password.");
-}
-
-        
+        if(!userName.isEmpty() && !passWord.isEmpty() ){
+                session.setAttribute("username", userName);
+                response.sendRedirect("inventory");
+                return;
+}       else{
+           request.setAttribute("message", "Please input valid credentials."); 
+        }   
     
     getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     return;
     }
+   
+    
+    
+    
 
 }
 

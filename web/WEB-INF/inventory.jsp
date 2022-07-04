@@ -19,10 +19,10 @@
             <input type="dropdown" name="category" id="category" value="${category}" required>
             <br>
             <label>Item Name: </label>
-            <input type="text" name="item" id="item" value="" required>
+            <input type="text" name="item" id="item" value="${item}" required>
             <br>
             <label>Price: </label>
-            <input type="text" name="price" id="price" value="" required>
+            <input type="text" name="priceString" id="priceString" value="${price}" required>
             <br>
             <input type="submit" value="Add">
         </form>

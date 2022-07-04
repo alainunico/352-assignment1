@@ -19,7 +19,7 @@
             <input type="text" name="username" id="username" value="${username}" required>
             <br>
             <label>Password: </label>
-            <input type="password" name="password" id="password" value="" required>
+            <input type="password" name="password" id="password" value="${password}" required>
             <br>
             <input type="submit" value="Log in">  
         </form>

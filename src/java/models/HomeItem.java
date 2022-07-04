@@ -5,9 +5,7 @@
  */
 package models;
 
-import java.io.File;
 import java.io.Serializable;
-import java.util.Scanner;
 
 /**
  *
@@ -17,6 +15,7 @@ import java.util.Scanner;
 
 public class HomeItem implements Serializable {
     
+    private String category;
     private String item;
     private int price;
     
@@ -24,9 +23,18 @@ public class HomeItem implements Serializable {
         
     }
     
-    public HomeItem(String item, int price){
+    public HomeItem(String category, String item, int price){
+        this.category = category;
         this.item = item;
         this.price = price;
+    }
+    
+    public String getCategory(){
+        return category;
+    }
+    
+    public void setCategory(String category){
+        this.category = category;
     }
     
     public String getItem(){
