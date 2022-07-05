@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import models.User;
+import services.AccountService;
 
 /**
  *
@@ -51,13 +53,25 @@ public class LoginServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
      
-        if(!userName.isEmpty() && !passWord.isEmpty() ){
-                session.setAttribute("username", userName);
+        if (userName.length() > 0 && passWord.length() > 0) { 
+            AccountService account = new AccountService();
+            User user = account.login(userName,passWord);
+            
+            if (user != null){
+                session.setAttribute("username", user.getUsername());
                 response.sendRedirect("inventory");
                 return;
-}       else{
-           request.setAttribute("message", "Please input valid credentials."); 
-        }   
+            } else{
+                request.setAttribute("username", "");
+                request.setAttribute("password", "");
+                request.setAttribute("message", "Your credentials are invalid. Please try again.");
+            }
+        }else{
+            request.setAttribute("username", "");
+            request.setAttribute("password", "");
+            request.setAttribute("message", "Your credentials are invalid. Please try again.");
+        }
+            
     
     getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     return;

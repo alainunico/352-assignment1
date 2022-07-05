@@ -52,7 +52,7 @@ public class HomeItem implements Serializable {
     public void setPrice(int price){
         this.price = price;
     }
-
+    
 }
 
 

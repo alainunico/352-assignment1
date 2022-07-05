@@ -15,8 +15,13 @@
         <h1>Home Inventory for ${username}</h1>
         <h2> Add Item </h2>
         <form method="post" action="additems">
-            <label>Category: </label>
-            <input type="dropdown" name="category" id="category" value="${category}" required>
+            <label for ="category">Category: </label>
+                <select name="category" id="category" >
+                    <option value="bedroom">Bedroom</option>
+                    <option value="living">Living Room</option>
+                    <option value="living">Kitchen</option>
+                    <option value="gatrage">Garage</option>
+                </select>
             <br>
             <label>Item Name: </label>
             <input type="text" name="item" id="item" value="${item}" required>
@@ -24,7 +29,7 @@
             <label>Price: </label>
             <input type="text" name="priceString" id="priceString" value="${price}" required>
             <br>
-            <input type="submit" value="Add">
+            <input type="submit" value="Add" name="add">
         </form>
             <p> ${addMessage} </p>
             <p> ${totalMessage} </p>

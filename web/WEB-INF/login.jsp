@@ -13,13 +13,13 @@
     </head>
     <body>
         <h1>Home Inventory</h1>
-        <h2>Login</h2>
+        <h2>Log In</h2>
         <form method="post" action="login">
             <label>Username: </label>
-            <input type="text" name="username" id="username" value="${username}" required>
+            <input type="text" name="username" id="username" value="${username}">
             <br>
             <label>Password: </label>
-            <input type="password" name="password" id="password" value="${password}" required>
+            <input type="password" name="password" id="password" value="${password}">
             <br>
             <input type="submit" value="Log in">  
         </form>
